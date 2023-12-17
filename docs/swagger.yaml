@@ -1,0 +1,76 @@
+basePath: /
+definitions:
+  model.TrackDetails:
+    properties:
+      artist_name:
+        type: string
+      isrc:
+        type: string
+      spotify_image:
+        type: string
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a simple example of a Golang application using Gin and GORM
+    to interact with the Spotify API.
+  title: Spotify API
+  version: "1.0"
+paths:
+  /track:
+    post:
+      consumes:
+      - application/json
+      description: Create a new track record in the database
+      operationId: create-track
+      parameters:
+      - description: Track details to create
+        in: body
+        name: trackDetails
+        required: true
+        schema:
+          $ref: '#/definitions/model.TrackDetails'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.TrackDetails'
+        "400":
+          description: Invalid request body
+          schema:
+            additionalProperties: true
+            type: object
+        "409":
+          description: Track with ISRC code already exists
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Create a new track
+  /track/{isrc}:
+    get:
+      description: Get track details from the database or Spotify by ISRC code
+      operationId: get-track-by-isrc
+      parameters:
+      - description: ISRC code of the track
+        in: path
+        name: isrc
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TrackDetails'
+        "404":
+          description: Track not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get track details by ISRC
+swagger: "2.0"
