@@ -59,6 +59,6 @@ To generate docs files.
 
 ### The API will be accessible at http://localhost:8080.
 
-### You can access the Swagger UI by visiting `http://localhost:8080/swagger/index.html` in your web browser.
+### You can access the Swagger UI by visiting http://localhost:8080/swagger/index.html in your web browser.
 
 API should have Swagger documentation, and you can use the Swagger UI to explore and test your API endpoints. 
