@@ -56,9 +56,20 @@ To generate docs files.
 
 ### go run main.go
 
-
 ### The API will be accessible at http://localhost:8080.
 
 ### You can access the Swagger UI by visiting http://localhost:8080/swagger/index.html in your web browser.
 
 API should have Swagger documentation, and you can use the Swagger UI to explore and test your API endpoints. 
+
+### Output Images of postgresDB
+
+![DB_details](https://github.com/naveenbalaji2001/Oauth-with-go/assets/150377130/1a891b1b-ad7a-4d47-a8f6-6c7bf9406820)
+![Post_trackdetails](https://github.com/naveenbalaji2001/Oauth-with-go/assets/150377130/65b24b78-f9ac-4d97-a4b3-7658424609f5)
+![Get_trackdetailsBy_ISRC](https://github.com/naveenbalaji2001/Oauth-with-go/assets/150377130/8bf9cda9-0b90-444a-b700-d1442ed47aff)
+
+### Output Images of swagger
+
+![swagger_DB_details](https://github.com/naveenbalaji2001/Oauth-with-go/assets/150377130/414cb14d-7701-4c45-b933-f388c862b15a)
+![swagger_POST_ss](https://github.com/naveenbalaji2001/Oauth-with-go/assets/150377130/7892d9a4-b2b7-4a96-874f-2259d20c55c2)
+![swagger_GET_ss](https://github.com/naveenbalaji2001/Oauth-with-go/assets/150377130/1473117f-5494-4077-b555-9dfb5b5c9ec7)
