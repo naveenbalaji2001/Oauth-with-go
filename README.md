@@ -7,17 +7,17 @@ This repository contains a simple Go application that serves as an API for retri
 
 Get Track Details: Retrieve detailed information about a track by providing its ISRC code.
 
-# API Endpoints
+## API Endpoints
 
-## GET /track/:isrc
+### GET /track/:isrc
 
 If the track details are already stored in the database, the API responds with the cached information. Otherwise, it queries the Spotify API to fetch the details, stores them in the database, and returns the information.
 
-## GET /track/artist/:artist_name
+### GET /track/artist/:artist_name
 
 Search for tracks by artist name.
 
-## POST /track
+### POST /track
 
  Format for posting track details
 {
@@ -27,7 +27,7 @@ Search for tracks by artist name.
   "spotify_image": "https://example.com/image.jpg"
 }
 
-## PUT /track/:isrc
+### PUT /track/:isrc
 
 Update an existing track record in the database by ISRC code.
 
