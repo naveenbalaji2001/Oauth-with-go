@@ -31,7 +31,6 @@ var SpotifyCredentials = struct {
 // @description Golang application using Gin and GORM to interact with the Spotify API.
 // @host localhost:8080
 // @BasePath /
-
 func main() {
 	router := gin.Default()
     docs.SwaggerInfo.BasePath = "/"
@@ -59,6 +58,9 @@ func main() {
 
 	router.POST("/track/", trackController.CreateTrack)
 
+	router.GET("/track/artist/:artist_name", trackController.SearchTrackByArtist)
+
+    router.PUT("/track/:isrc", trackController.UpdateTheTrack)
 
 	router.Run(":8080")
 }
