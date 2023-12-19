@@ -73,4 +73,65 @@ paths:
             additionalProperties: true
             type: object
       summary: Get track details by ISRC
+    put:
+      consumes:
+      - application/json
+      description: Update an existing track record in the database by ISRC
+      parameters:
+      - description: ISRC code of the track to be updated
+        in: path
+        name: isrc
+        required: true
+        type: string
+      - description: Updated track details
+        in: body
+        name: trackDetails
+        required: true
+        schema:
+          $ref: '#/definitions/model.TrackDetails'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.TrackDetails'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Update a track by ISRC
+  /track/artist/{artist_name}:
+    get:
+      description: Search for tracks by artist name using the Spotify API
+      operationId: search-track-by-artist
+      parameters:
+      - description: Name of the artist
+        in: path
+        name: artist_name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.TrackDetails'
+            type: array
+        "404":
+          description: tracks not found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search for tracks by artist name
 swagger: "2.0"
