@@ -11,8 +11,6 @@ require (
 	golang.org/x/oauth2 v0.15.0
 )
 
-require github.com/knz/go-libedit v1.10.1 // indirect
-
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/bytedance/sonic v1.10.2 // indirect
