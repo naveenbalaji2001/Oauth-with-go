@@ -23,6 +23,10 @@ If the track details are already stored in the database, the API responds with t
   "spotify_image": "https://example.com/image.jpg"
 }
 
+** PUT /track/:isrc
+
+Update an existing track record in the database by ISRC code.
+
 
 ## Prerequisites
 
