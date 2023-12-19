@@ -61,6 +61,43 @@ const docTemplate = `{
                 }
             }
         },
+        "/track/artist/{artist_name}": {
+            "get": {
+                "description": "Search for tracks by artist name using the Spotify API",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Search for tracks by artist name",
+                "operationId": "search-track-by-artist",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Name of the artist",
+                        "name": "artist_name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.TrackDetails"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "tracks not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
         "/track/{isrc}": {
             "get": {
                 "description": "Get track details from the database or Spotify by ISRC code",
@@ -90,6 +127,60 @@ const docTemplate = `{
                         "schema": {
                             "type": "object",
                             "additionalProperties": true
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Update an existing track record in the database by ISRC",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update a track by ISRC",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ISRC code of the track to be updated",
+                        "name": "isrc",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Updated track details",
+                        "name": "trackDetails",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.TrackDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.TrackDetails"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
