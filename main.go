@@ -22,8 +22,8 @@ var SpotifyCredentials = struct {
 	ClientID     string
 	ClientSecret string
 }{
-	ClientID:     "d0a672cffb8149f685b4002ec1bc9da3",
-	ClientSecret: "0795acb1e47345138c00c462374d2158",
+	ClientID:     "your_client_id",
+	ClientSecret: "your_client_secret",
 }
 
 // @title Spotify API
@@ -34,7 +34,7 @@ var SpotifyCredentials = struct {
 func main() {
 	router := gin.Default()
     docs.SwaggerInfo.BasePath = "/"
-	db, err := gorm.Open("postgres", "postgresql://postgres:Naveen1341@localhost/spotifydb?sslmode=disable")
+	db, err := gorm.Open("postgres", "postgresql://user:db_password@localhost/dbname?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
