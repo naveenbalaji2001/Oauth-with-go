@@ -1,7 +1,6 @@
 package dao
 
 import (
-
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/naveenbalaji2001/Oauth-with-go/model"
