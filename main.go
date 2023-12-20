@@ -51,7 +51,6 @@ func main() {
 	spotifyService := service.NewSpotifyService(client)
 	trackController := controller.NewTrackController(dbAccessor, spotifyService)
 
-	// Swagger documentation route
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	
 	router.GET("/track/:isrc", trackController.GetTrackDetailsByISRC)
