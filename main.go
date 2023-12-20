@@ -34,7 +34,7 @@ var SpotifyCredentials = struct {
 func main() {
 	router := gin.Default()
     docs.SwaggerInfo.BasePath = "/"
-	db, err := gorm.Open("postgres", "postgresql://user:db_password@localhost/dbname?sslmode=disable")
+	db, err := gorm.Open("postgres", "postgresql://db_user:db_password@localhost/dbname?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
