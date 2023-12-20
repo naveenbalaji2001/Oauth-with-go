@@ -3,7 +3,6 @@ package controller
 import (
 	"fmt"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"github.com/naveenbalaji2001/Oauth-with-go/dao"
 	"github.com/naveenbalaji2001/Oauth-with-go/model"
